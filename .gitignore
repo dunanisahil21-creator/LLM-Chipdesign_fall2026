@@ -1,0 +1,17 @@
+# API keys & secrets
+*.env
+.env
+**/api_key*
+**/*apikey*
+**/*API_KEY*
+
+# Python
+__pycache__/
+*.pyc
+
+# Simulation artifacts (keep .v and logs, ignore binaries/vcd if too large)
+*.vvp
+
+# OS
+.DS_Store
+Thumbs.db
