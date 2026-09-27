@@ -1,0 +1,22 @@
+{
+  "name": "lfsr",
+  "module_name": "lfsr",
+  "passed": true,
+  "config": {
+    "model": "gpt-4o-mini",
+    "temperature": 0.4,
+    "max_iterations": 4,
+    "max_tokens": 1500
+  },
+  "attempts": [
+    {
+      "iteration": 1,
+      "prompt": "You are generating synthesizable Verilog for an Icarus Verilog testbench.\n\n    SPECIFICATION:\n    I am trying to create a Verilog model for an LFSR. It must meet the following specifications:\n\t- Inputs:\n\t\t- Clock\n        - Active-low reset\n\t- Outputs:\n\t\t- Data (8-bits)\n\nThe initial state should be 10001010, and the taps should be at locations 1, 4, 6, and 7.\n\nHow would I write a design that meets these specifications?\n\n    THE OFFICIAL TESTBENCH THAT WILL COMPILE AGAINST YOUR MODULE:\n    ```verilog\n    `timescale 1ns / 1ps\n\nmodule tb_lfsr();\n    reg clk;\n    reg reset_n;\n    wire [7:0] data;\n\n    // Instantiate the LFSR design\n    lfsr lfsr_inst (\n        .clk(clk),\n        .reset_n(reset_n),\n        .data(data)\n    );\n\n    // Clock generation\n    always begin\n        #5 clk = ~clk;\n    end\n\n    // Variables for stimulus and checking\n    integer i;\n    reg [7:0] data_expected;\n\n    // Function to generate the reference LFSR output\n    function [7:0] reference_lfsr_output;\n        input [7:0] current_state;\n        begin\n            reference_lfsr_output = {current_state[6:0], current_state[0] ^ current_state[3] ^ current_state[5] ^ current_state[6]};\n        end\n    endfunction\n\n    // Stimulus and checking\n    initial begin\n        // Initialize the clock and reset signals\n        clk = 0;\n        reset_n = 0;\n\n        // Apply reset and wait for a clock cycle\n        #5 reset_n = 1;\n\n        // Initial state check\n        if (data !== 8'b10001010) begin\n            $display(\"Error: At time %t, data = %b, expected = 10001010\", $time, data);\n            $finish;\n        end\n\n        // Set the initial expected state\n        data_expected = 8'b10001010;\n\n        // Run simulation for 256 cycles and check the output\n        for (i = 0; i < 256; i = i + 1) begin\n            // Update the expected state\n            data_expected = reference_lfsr_output(data_expected);\n\n            // Apply the clock\n            #10;\n\n            // Check the output\n            if (data !== data_expected) begin\n                $display(\"Error: At time %t, data = %b, expected = %b\", $time, data, data_expected);\n                $finish;\n            end\n        end\n\n        // Simulation successful\n        $display(\"Simulation successful. All test cases passed.\");\n        $finish;\n    end\n\nendmodule\n\n\n    ```\n\n    REQUIREMENTS:\n    - Your top-level module MUST be named EXACTLY `lfsr`.\n    - Match the EXACT port names, widths, and directions that the testbench connects to\n      when it instantiates the DUT. Do not invent your own port names.\n    - Use standard synthesizable Verilog-2001 constructs; avoid SystemVerilog-only features.\n    - Do NOT modify the testbench. Only produce the design module.\n    - Return ONLY one fenced ```verilog block containing the complete module. No prose outside the block.",
+      "verilog": "module lfsr (\n    input clk,\n    input reset_n,\n    output reg [7:0] data\n);\n    // Initial state\n    initial begin\n        data = 8'b10001010;\n    end\n\n    // LFSR operation\n    always @(posedge clk or negedge reset_n) begin\n        if (!reset_n) begin\n            data <= 8'b10001010; // Reset to initial state\n        end else begin\n            // Shift and feedback calculation\n            data <= {data[6:0], data[0] ^ data[3] ^ data[5] ^ data[6]};\n        end\n    end\nendmodule",
+      "compile_ok": true,
+      "compile_output": "",
+      "sim_ok": true,
+      "sim_output": "Simulation successful. All test cases passed.\nlfsr_tb.v:67: $finish called at 2565000 (1ps)\n"
+    }
+  ]
+}
