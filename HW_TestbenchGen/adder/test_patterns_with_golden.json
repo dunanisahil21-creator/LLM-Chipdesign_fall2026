@@ -1,0 +1,224 @@
+{
+  "patterns": [
+    {
+      "inputs": {
+        "a": 0,
+        "b": 0,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 0,
+        "cout": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 1,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 2,
+        "cout": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 2,
+        "b": 3,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 5,
+        "cout": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 15,
+        "b": 1,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 0,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 15,
+        "b": 15,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 14,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 7,
+        "b": 8,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 0,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 10,
+        "b": 5,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 0,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 15,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 0,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 15,
+        "b": 0,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 0,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 12,
+        "b": 12,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 8,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 3,
+        "b": 3,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 7,
+        "cout": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 5,
+        "b": 5,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 10,
+        "cout": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 9,
+        "b": 9,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 3,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 14,
+        "b": 1,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 15,
+        "cout": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 6,
+        "b": 6,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 13,
+        "cout": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 0,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 1,
+        "cout": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 15,
+        "b": 15,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 15,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 4,
+        "b": 3,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 7,
+        "cout": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 8,
+        "b": 8,
+        "cin": 0
+      },
+      "expected": {
+        "sum": 0,
+        "cout": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 7,
+        "b": 7,
+        "cin": 1
+      },
+      "expected": {
+        "sum": 15,
+        "cout": 0
+      }
+    }
+  ]
+}

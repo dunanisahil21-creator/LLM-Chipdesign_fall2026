@@ -1,0 +1,204 @@
+{
+  "patterns": [
+    {
+      "inputs": {
+        "a": 0,
+        "b": 0,
+        "sel": 0
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 0,
+        "sel": 1
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 1,
+        "sel": 0
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 1,
+        "sel": 1
+      },
+      "expected": {
+        "y": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 0,
+        "sel": 0
+      },
+      "expected": {
+        "y": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 0,
+        "sel": 1
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 1,
+        "sel": 0
+      },
+      "expected": {
+        "y": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 1,
+        "sel": 1
+      },
+      "expected": {
+        "y": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 1,
+        "sel": 0
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 0,
+        "sel": 1
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 1,
+        "sel": 0
+      },
+      "expected": {
+        "y": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 0,
+        "sel": 1
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 0,
+        "sel": 0
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 1,
+        "sel": 1
+      },
+      "expected": {
+        "y": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 1,
+        "sel": 0
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 0,
+        "sel": 1
+      },
+      "expected": {
+        "y": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 1,
+        "sel": 0
+      },
+      "expected": {
+        "y": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 1,
+        "sel": 1
+      },
+      "expected": {
+        "y": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 0,
+        "sel": 0
+      },
+      "expected": {
+        "y": 1
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 0,
+        "sel": 1
+      },
+      "expected": {
+        "y": 0
+      }
+    }
+  ]
+}

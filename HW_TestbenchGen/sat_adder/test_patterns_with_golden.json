@@ -1,0 +1,184 @@
+{
+  "patterns": [
+    {
+      "inputs": {
+        "a": 0,
+        "b": 0
+      },
+      "expected": {
+        "sum": 0
+      }
+    },
+    {
+      "inputs": {
+        "a": 7,
+        "b": 5
+      },
+      "expected": {
+        "sum": 12
+      }
+    },
+    {
+      "inputs": {
+        "a": 15,
+        "b": 0
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 8,
+        "b": 8
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 15,
+        "b": 15
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 1,
+        "b": 1
+      },
+      "expected": {
+        "sum": 2
+      }
+    },
+    {
+      "inputs": {
+        "a": 3,
+        "b": 2
+      },
+      "expected": {
+        "sum": 5
+      }
+    },
+    {
+      "inputs": {
+        "a": 4,
+        "b": 4
+      },
+      "expected": {
+        "sum": 8
+      }
+    },
+    {
+      "inputs": {
+        "a": 2,
+        "b": 3
+      },
+      "expected": {
+        "sum": 5
+      }
+    },
+    {
+      "inputs": {
+        "a": 10,
+        "b": 6
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 14,
+        "b": 3
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 5,
+        "b": 10
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 12,
+        "b": 4
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 6,
+        "b": 9
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 13,
+        "b": 3
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 0,
+        "b": 15
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 15,
+        "b": 1
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 7,
+        "b": 9
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 11,
+        "b": 5
+      },
+      "expected": {
+        "sum": 15
+      }
+    },
+    {
+      "inputs": {
+        "a": 9,
+        "b": 7
+      },
+      "expected": {
+        "sum": 15
+      }
+    }
+  ]
+}
