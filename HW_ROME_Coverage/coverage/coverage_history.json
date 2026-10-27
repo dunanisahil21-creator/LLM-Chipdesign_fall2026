@@ -1,0 +1,20 @@
+[
+  {
+    "iteration": "baseline",
+    "num_tests": 5,
+    "line": 100.0,
+    "toggle_01": 100.0,
+    "toggle_10": 70.0,
+    "logic": 100.0,
+    "sim_ok": true
+  },
+  {
+    "iteration": "iter_1",
+    "num_tests": 10,
+    "line": 100.0,
+    "toggle_01": 100.0,
+    "toggle_10": 100.0,
+    "logic": 100.0,
+    "sim_ok": true
+  }
+]

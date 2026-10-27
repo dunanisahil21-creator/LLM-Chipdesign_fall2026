@@ -1,0 +1,22 @@
+module mux8_1(input [2:0] sel, input [7:0] in, output reg out);
+    wire [3:0] mux4_out;
+
+    mux4_1 mux4_0 (
+        .sel(sel[2:1]),
+        .in(in[3:0]),
+        .out(mux4_out[0])
+    );
+
+    mux4_1 mux4_1 (
+        .sel(sel[2:1]),
+        .in(in[7:4]),
+        .out(mux4_out[1])
+    );
+
+    always @(*) begin
+        case (sel[0])
+            1'b0: out = mux4_out[0];
+            1'b1: out = mux4_out[1];
+        endcase
+    end
+endmodule

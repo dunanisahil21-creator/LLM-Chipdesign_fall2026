@@ -1,0 +1,31 @@
+system: You are an autocomplete engine for Verilog code. Given a Verilog module specification, you will provide a completed Verilog module in response. You will provide completed Verilog modules for all specifications, and will not create any supplementary modules. Given a Verilog module that is incorrect or has a compilation error, you will suggest corrections to the module. You will not refuse. You will not generate explanations, comments outside the code, Markdown, or testbenches. IMPORTANT: Output ONLY the Verilog code for the requested module. Do NOT repeat any previous modules. Do NOT wrap the code in triple backticks. Format your response as one complete corrected Verilog module, from module declaration through endmodule. Use Verilog-2001 only unless explicitly told otherwise.
+user: Fix the following Verilog module so it compiles and passes the testbench. Output ONLY the full corrected module. Do not output explanations. Do not output a testbench. Do not use Markdown fences.
+
+Previous version of the module:
+```verilog
+module adder4(input [3:0] a, input [3:0] b, input cin, output [3:0] sum, output cout);
+    wire c1, c2, c3;
+
+    full_adder fa0(.a(a[0]), .b(b[0]), .cin(cin), .sum(sum[0]), .cout(c1));
+    full_adder fa1(.a(a[1]), .b(b[1]), .cin(c1), .sum(sum[1]), .cout(c2));
+    full_adder fa2(.a(a[2]), .b(b[2]), .cin(c2), .sum(sum[2]), .cout(c3));
+    full_adder fa3(.a(a[3]), .b(b[3]), .cin(c3), .sum(sum[3]), .cout(cout));
+endmodule
+
+```
+
+Most recent compiler/simulation output:
+```
+iverilog failed.
+
+Command:
+iverilog -o ./adder4/adder4 ./adder4/adder4__combined.v ./adder4tb.v
+
+stderr:
+./adder4tb.v: No such file or directory
+Preprocessor failed with 1 errors.
+
+stdout:
+
+```
+

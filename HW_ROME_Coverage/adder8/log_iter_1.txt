@@ -1,0 +1,17 @@
+{'role': 'system', 'content': 'You are an autocomplete engine for Verilog code. Given a Verilog module specification, you will provide a completed Verilog module in response. You will provide completed Verilog modules for all specifications, and will not create any supplementary modules. Given a Verilog module that is incorrect or has a compilation error, you will suggest corrections to the module. You will not refuse. You will not generate explanations, comments outside the code, Markdown, or testbenches. IMPORTANT: Output ONLY the Verilog code for the requested module. Do NOT repeat any previous modules. Do NOT wrap the code in triple backticks. Format your response as one complete corrected Verilog module, from module declaration through endmodule. Use Verilog-2001 only unless explicitly told otherwise.'}
+{'role': 'user', 'content': 'Fix the following Verilog module so it compiles and passes the testbench. Output ONLY the full corrected module. Do not output explanations. Do not output a testbench. Do not use Markdown fences.\n\nPrevious version of the module:\n```verilog\nmodule adder8(input [7:0] a, input [7:0] b, input cin, output [7:0] sum, output cout);\n  wire cout_low;\n  \n  adder4 low_adder(.a(a[3:0]), .b(b[3:0]), .cin(cin), .sum(sum[3:0]), .cout(cout_low));\n  adder4 high_adder(.a(a[7:4]), .b(b[7:4]), .cin(cout_low), .sum(sum[7:4]), .cout(cout));\n\nendmodule\n\n```\n\nMost recent compiler/simulation output:\n```\niverilog failed.\n\nCommand:\niverilog -o ./adder8/adder8 ./adder8/adder8__combined.v ./adder8tb.v\n\nstderr:\n./adder8tb.v: No such file or directory\nPreprocessor failed with 1 errors.\n\nstdout:\n\n```\n'}
+{'role': 'assistant', 'content': 'module adder8(input [7:0] a, input [7:0] b, input cin, output [7:0] sum, output cout);\n  wire cout_low;\n  \n  adder4 low_adder(.a(a[3:0]), .b(b[3:0]), .cin(cin), .sum(sum[3:0]), .cout(cout_low));\n  adder4 high_adder(.a(a[7:4]), .b(b[7:4]), .cin(cout_low), .sum(sum[7:4]), .cout(cout));\n\nendmodule'}
+
+Iteration status: Error compiling testbench
+
+Most recent feedback:
+iverilog failed.
+
+Command:
+iverilog -o ./adder8/adder8 ./adder8/adder8__combined.v ./adder8tb.v
+
+stderr:
+./adder8tb.v: No such file or directory
+Preprocessor failed with 1 errors.
+
+stdout:

@@ -1,0 +1,30 @@
+system: You are an autocomplete engine for Verilog code. Given a Verilog module specification, you will provide a completed Verilog module in response. You will provide completed Verilog modules for all specifications, and will not create any supplementary modules. Given a Verilog module that is incorrect or has a compilation error, you will suggest corrections to the module. You will not refuse. You will not generate explanations, comments outside the code, Markdown, or testbenches. IMPORTANT: Output ONLY the Verilog code for the requested module. Do NOT repeat any previous modules. Do NOT wrap the code in triple backticks. Format your response as one complete corrected Verilog module, from module declaration through endmodule. Use Verilog-2001 only unless explicitly told otherwise.
+user: Fix the following Verilog module so it compiles and passes the testbench. Output ONLY the full corrected module. Do not output explanations. Do not output a testbench. Do not use Markdown fences.
+
+Previous version of the module:
+```verilog
+module full_adder(input a, input b, input cin, output sum, output cout);
+    wire sum1, carry1, carry2;
+
+    half_adder HA1 (.a(a), .b(b), .sum(sum1), .carry(carry1));
+    half_adder HA2 (.a(sum1), .b(cin), .sum(sum), .carry(carry2));
+    assign cout = carry1 | carry2;
+endmodule
+
+```
+
+Most recent compiler/simulation output:
+```
+iverilog failed.
+
+Command:
+iverilog -o ./full_adder/full_adder ./full_adder/full_adder__combined.v ./full_addertb.v
+
+stderr:
+./full_addertb.v: No such file or directory
+Preprocessor failed with 1 errors.
+
+stdout:
+
+```
+

@@ -1,0 +1,17 @@
+{'role': 'system', 'content': 'You are an autocomplete engine for Verilog code. Given a Verilog module specification, you will provide a completed Verilog module in response. You will provide completed Verilog modules for all specifications, and will not create any supplementary modules. Given a Verilog module that is incorrect or has a compilation error, you will suggest corrections to the module. You will not refuse. You will not generate explanations, comments outside the code, Markdown, or testbenches. IMPORTANT: Output ONLY the Verilog code for the requested module. Do NOT repeat any previous modules. Do NOT wrap the code in triple backticks. Format your response as one complete corrected Verilog module, from module declaration through endmodule. Use Verilog-2001 only unless explicitly told otherwise.'}
+{'role': 'user', 'content': 'Fix the following Verilog module so it compiles and passes the testbench. Output ONLY the full corrected module. Do not output explanations. Do not output a testbench. Do not use Markdown fences.\n\nPrevious version of the module:\n```verilog\nmodule adder4(input [3:0] a, input [3:0] b, input cin, output [3:0] sum, output cout);\n    wire c1, c2, c3;\n\n    full_adder fa0(a[0], b[0], cin, sum[0], c1);\n    full_adder fa1(a[1], b[1], c1, sum[1], c2);\n    full_adder fa2(a[2], b[2], c2, sum[2], c3);\n    full_adder fa3(a[3], b[3], c3, sum[3], cout);\nendmodule\n\n```\n\nMost recent compiler/simulation output:\n```\niverilog failed.\n\nCommand:\niverilog -o ./adder4/adder4 ./adder4/adder4__combined.v ./adder4tb.v\n\nstderr:\n./adder4tb.v: No such file or directory\nPreprocessor failed with 1 errors.\n\nstdout:\n\n```\n'}
+{'role': 'assistant', 'content': 'module adder4(input [3:0] a, input [3:0] b, input cin, output [3:0] sum, output cout);\n    wire c1, c2, c3;\n\n    full_adder fa0(a[0], b[0], cin, sum[0], c1);\n    full_adder fa1(a[1], b[1], c1, sum[1], c2);\n    full_adder fa2(a[2], b[2], c2, sum[2], c3);\n    full_adder fa3(a[3], b[3], c3, sum[3], cout);\nendmodule'}
+
+Iteration status: Error compiling testbench
+
+Most recent feedback:
+iverilog failed.
+
+Command:
+iverilog -o ./adder4/adder4 ./adder4/adder4__combined.v ./adder4tb.v
+
+stderr:
+./adder4tb.v: No such file or directory
+Preprocessor failed with 1 errors.
+
+stdout:

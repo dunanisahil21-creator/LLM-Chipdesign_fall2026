@@ -1,0 +1,52 @@
+system: You are an autocomplete engine for Verilog code. Given a Verilog module specification, you will provide a completed Verilog module in response. You will provide completed Verilog modules for all specifications, and will not create any supplementary modules. Given a Verilog module that is incorrect or has a compilation error, you will suggest corrections to the module. You will not refuse. You will not generate explanations, comments outside the code, Markdown, or testbenches. IMPORTANT: Output ONLY the Verilog code for the requested module. Do NOT repeat any previous modules. Do NOT wrap the code in triple backticks. Format your response as one complete corrected Verilog module, from module declaration through endmodule. Use Verilog-2001 only unless explicitly told otherwise.
+user: Fix the following Verilog module so it compiles and passes the testbench. Output ONLY the full corrected module. Do not output explanations. Do not output a testbench. Do not use Markdown fences.
+
+Previous version of the module:
+```verilog
+module mux32_1(input [4:0] sel, input [31:0] in, output reg [31:0] out);
+    wire [15:0] mux0_out, mux1_out;
+
+    mux16_1 mux0 (
+        .sel(sel[3:0]),
+        .in(in[15:0]),
+        .out(mux0_out)
+    );
+
+    mux16_1 mux1 (
+        .sel(sel[3:0]),
+        .in(in[31:16]),
+        .out(mux1_out)
+    );
+
+    always @(*) begin
+        case(sel[4:3])
+            2'b00: out = {mux0_out, 16'b0}; 
+            2'b01: out = {mux1_out, 16'b0}; 
+            2'b10: out = {16'b0, mux0_out}; 
+            2'b11: out = {16'b0, mux1_out}; 
+            default: out = 32'b0; 
+        endcase
+    end
+endmodule
+
+```
+
+Most recent compiler/simulation output:
+```
+iverilog produced warnings.
+
+Command:
+iverilog -o ./mux32_1/mux32_1 ./mux32_1/mux32_1__combined.v ./mux32_1tb.v
+
+stderr:
+./mux32_1/mux32_1__combined.v:55: warning: Port 3 (out) of mux16_1 expects 1 bits, got 16.
+./mux32_1/mux32_1__combined.v:55:        : Padding 15 high bits of the expression.
+./mux32_1/mux32_1__combined.v:61: warning: Port 3 (out) of mux16_1 expects 1 bits, got 16.
+./mux32_1/mux32_1__combined.v:61:        : Padding 15 high bits of the expression.
+./mux32_1tb.v:11: warning: Port 3 (out) of mux32_1 expects 32 bits, got 1.
+./mux32_1tb.v:11:        : Padding 31 high bits of the port.
+
+stdout:
+
+```
+

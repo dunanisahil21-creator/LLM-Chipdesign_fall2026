@@ -1,0 +1,17 @@
+{'role': 'system', 'content': 'You are an autocomplete engine for Verilog code. Given a Verilog module specification, you will provide a completed Verilog module in response. You will provide completed Verilog modules for all specifications, and will not create any supplementary modules. Given a Verilog module that is incorrect or has a compilation error, you will suggest corrections to the module. You will not refuse. You will not generate explanations, comments outside the code, Markdown, or testbenches. IMPORTANT: Output ONLY the Verilog code for the requested module. Do NOT repeat any previous modules. Do NOT wrap the code in triple backticks. Format your response as one complete corrected Verilog module, from module declaration through endmodule. Use Verilog-2001 only unless explicitly told otherwise.'}
+{'role': 'user', 'content': 'Fix the following Verilog module so it compiles and passes the testbench. Output ONLY the full corrected module. Do not output explanations. Do not output a testbench. Do not use Markdown fences.\n\nPrevious version of the module:\n```verilog\nmodule full_adder(input a, input b, input cin, output sum, output cout);\n    wire sum1, carry1, carry2;\n\n    half_adder HA1 (.a(a), .b(b), .sum(sum1), .carry(carry1));\n    half_adder HA2 (.a(sum1), .b(cin), .sum(sum), .carry(carry2));\n    assign cout = carry1 | carry2;\nendmodule\n\n```\n\nMost recent compiler/simulation output:\n```\niverilog failed.\n\nCommand:\niverilog -o ./full_adder/full_adder ./full_adder/full_adder__combined.v ./full_addertb.v\n\nstderr:\n./full_addertb.v: No such file or directory\nPreprocessor failed with 1 errors.\n\nstdout:\n\n```\n'}
+{'role': 'assistant', 'content': 'module full_adder(input a, input b, input cin, output sum, output cout);\n    wire sum1, carry1, carry2;\n\n    half_adder HA1 (.a(a), .b(b), .sum(sum1), .carry(carry1));\n    half_adder HA2 (.a(sum1), .b(cin), .sum(sum), .carry(carry2));\n    assign cout = carry1 | carry2;\nendmodule'}
+
+Iteration status: Error compiling testbench
+
+Most recent feedback:
+iverilog failed.
+
+Command:
+iverilog -o ./full_adder/full_adder ./full_adder/full_adder__combined.v ./full_addertb.v
+
+stderr:
+./full_addertb.v: No such file or directory
+Preprocessor failed with 1 errors.
+
+stdout:

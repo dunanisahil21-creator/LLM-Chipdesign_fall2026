@@ -1,0 +1,27 @@
+system: You are an autocomplete engine for Verilog code. Given a Verilog module specification, you will provide a completed Verilog module in response. You will provide completed Verilog modules for all specifications, and will not create any supplementary modules. Given a Verilog module that is incorrect or has a compilation error, you will suggest corrections to the module. You will not refuse. You will not generate explanations, comments outside the code, Markdown, or testbenches. IMPORTANT: Output ONLY the Verilog code for the requested module. Do NOT repeat any previous modules. Do NOT wrap the code in triple backticks. Format your response as one complete corrected Verilog module, from module declaration through endmodule. Use Verilog-2001 only unless explicitly told otherwise.
+user: Fix the following Verilog module so it compiles and passes the testbench. Output ONLY the full corrected module. Do not output explanations. Do not output a testbench. Do not use Markdown fences.
+
+Previous version of the module:
+```verilog
+module half_adder(input wire a, input wire b, output wire sum, output wire carry);
+    assign sum = a ^ b;
+    assign carry = a & b;
+endmodule
+
+```
+
+Most recent compiler/simulation output:
+```
+iverilog failed.
+
+Command:
+iverilog -o ./half_adder/half_adder ./half_adder/half_adder__combined.v ./half_addertb.v
+
+stderr:
+./half_addertb.v: No such file or directory
+Preprocessor failed with 1 errors.
+
+stdout:
+
+```
+

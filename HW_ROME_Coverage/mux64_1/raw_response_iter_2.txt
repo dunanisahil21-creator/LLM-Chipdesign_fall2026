@@ -1,0 +1,13 @@
+module mux64_1(input [5:0] sel, input [63:0] in, output reg [63:0] out);
+  wire [31:0] mux_out0, mux_out1;
+
+  mux32_1 mux0(.sel(sel[4:0]), .in(in[31:0]), .out(mux_out0));
+  mux32_1 mux1(.sel(sel[4:0]), .in(in[63:32]), .out(mux_out1));
+  
+  always @(*) begin
+    case(sel[5])
+      1'b0: out = {mux_out0}; 
+      1'b1: out = {mux_out1}; 
+    endcase
+  end
+endmodule
